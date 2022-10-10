@@ -22,6 +22,7 @@ import { Link as ReactLink } from "react-router-dom"
 import { useMutation } from '@apollo/client';
 import { logoutMutationDocument } from '../../graphQL/mutations/logout';
 import { useNavigate } from "react-router-dom"
+import { Logo } from '../../Logo';
 
 const Links = [{ name: 'Home', href: '/' }, { name: 'Past Orders', href: '/orders' }];
 
@@ -62,6 +63,10 @@ export default function Header({ children }: { children: ReactNode }) {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
+            <Box width="35px">
+            <Logo />
+
+              </Box>
             <HStack
               as={'nav'}
               spacing={4}
