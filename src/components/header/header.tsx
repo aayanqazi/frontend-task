@@ -87,13 +87,13 @@ export default function Header({ children }: { children: ReactNode }) {
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem>My Profile</MenuItem>
+                <MenuItem onClick={() => navigate('/profile')}>My Profile</MenuItem>
                 <MenuDivider />
                 <MenuItem onClick={() => {
                   logout();
                   localStorage.removeItem('token');
                   navigate('/login')
-                  
+
                 }}>Logout</MenuItem>
               </MenuList>
             </Menu>

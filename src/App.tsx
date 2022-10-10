@@ -13,6 +13,7 @@ import {
 import Header from "./components/header/header";
 import { Products } from "./components/products/products";
 import { Orders } from "./components/orders/orders";
+import { Profile } from "./components/profile/profile";
 
 
 export const App = () => (
@@ -25,6 +26,9 @@ export const App = () => (
         </ProtectedRoute>} />
         <Route path="/orders" element={<ProtectedRoute>
           <Orders />
+        </ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute>
+          <Profile />
         </ProtectedRoute>} />
       </Routes>
     </ChakraProvider>
