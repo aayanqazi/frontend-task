@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client"
-import { Box, Text, Spinner, Flex } from "@chakra-ui/react"
-import { useState } from "react"
+import { Box, Text, Spinner, Flex, Tbody, Tr, Td } from "@chakra-ui/react"
 import { getProductsQueryDocument } from "../../graphQL/queries/getProducts"
 import { TableComponent } from "../table/table"
 import { useSearchParams, useNavigate } from 'react-router-dom';
@@ -22,7 +21,7 @@ export const Products = () => {
   return <Box margin="0 auto">
     <Text textAlign="center" fontWeight="900" fontSize="7xl">List Of Products</Text>
     <Box marginTop="20">
-      {loading ? <Flex justifyContent="center"><Spinner /></Flex> : <TableComponent currentPage={currentPage} onPrevPage={() => {
+      {loading ? <Flex justifyContent="center"><Spinner /></Flex> : <TableComponent pagination={true} currentPage={currentPage} onPrevPage={() => {
         navigate({
           pathname: '/',
           search: `?page=${currentPage - 1}`,
@@ -32,7 +31,16 @@ export const Products = () => {
           pathname: '/',
           search: `?page=${currentPage + 1}`,
         })
-      }} totalCount={totalPages} thead={['Code', 'Type', 'Description', 'Weight', 'Price']} tbody={data?.products?.products} />}
+      }} totalCount={totalPages} thead={['Code', 'Type', 'Description', 'Weight', 'Price']}> <Tbody>
+          {
+            data?.products?.products?.map((val: any, ind: any) => <Tr key={ind}>
+              <Td>{val?.code}</Td>
+              <Td>{val?.itemType}</Td>
+              <Td>{val?.description1}</Td>
+              <Td>{val?.weight}</Td>
+              <Td>{val?.price?.price?.price}</Td>
+            </Tr>)
+          }</Tbody></TableComponent>}
     </Box>
   </Box>
 }

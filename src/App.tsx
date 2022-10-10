@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import Header from "./components/header/header";
 import { Products } from "./components/products/products";
+import { Orders } from "./components/orders/orders";
 
 
 export const App = () => (
@@ -21,6 +22,9 @@ export const App = () => (
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<ProtectedRoute>
           <Products />
+        </ProtectedRoute>} />
+        <Route path="/orders" element={<ProtectedRoute>
+          <Orders />
         </ProtectedRoute>} />
       </Routes>
     </ChakraProvider>
