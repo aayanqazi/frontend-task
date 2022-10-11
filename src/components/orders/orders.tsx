@@ -12,7 +12,6 @@ export const Orders = () => {
     }
   })
 
-  console.log(data)
 
   return <Box margin="0 auto">
     <Text textAlign="center" fontWeight="900" fontSize={["5xl", "5xl", "7xl"]}>List Of Recent Orders</Text>
