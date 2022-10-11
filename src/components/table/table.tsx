@@ -1,11 +1,8 @@
 import {
   Table,
   Thead,
-  Tbody,
-  Tfoot,
   Tr,
   Th,
-  Td,
   TableCaption,
   TableContainer,
   Button,
